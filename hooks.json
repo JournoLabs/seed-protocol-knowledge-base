@@ -1,17 +1,5 @@
 [
   {
-    "id": "github-webhook/seed-protocol-docs-content",
-    "execute-command": "/scripts/pull_content.sh",
-    "command-working-directory": "/",
-    "response-message": "Script executed successfully",
-    "trigger-rule": {
-      "match": {
-        "type": "payload-hash-sha1",
-        "secret": "{{ getenv GITHUB_WEBHOOK_SECRET_PULL_CONTENT | js }}"
-      }
-    }
-  },
-   {
     "id": "github-webhook-deploy-knowledge-base",
     "execute-command": "/scripts/deploy_knowledge_base.sh",
     "command-working-directory": "/",
