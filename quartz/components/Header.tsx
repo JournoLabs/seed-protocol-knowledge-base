@@ -1,19 +1,19 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 
 const Header: QuartzComponent = ({ children }: QuartzComponentProps) => {
-  return children.length > 0 ? <header>{children}</header> : null
+  return children.length > 0 ? <header class="page-header">{children}</header> : null
 }
 
 Header.css = `
-header {
+header.page-header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 2rem 0;
+  margin: 0 0 1.5rem;
   gap: 1.5rem;
 }
 
-header h1 {
+header.page-header h1 {
   margin: 0;
   flex: auto;
 }

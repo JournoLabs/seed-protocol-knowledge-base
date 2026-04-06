@@ -1,0 +1,360 @@
+@use "sass:list";
+
+/* SeedDocs transformer: link-grid, feature-grid, feature-badge */
+
+.seed-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15.5rem), 1fr));
+  gap: 1rem 1.125rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+/* Border / arrow accents: defaults follow theme; per-card hues use Tailwind v3 default hex (400/500/600). */
+.seed-link-card {
+  --seed-br1: color-mix(in srgb, var(--secondary) 42%, var(--lightgray));
+  --seed-br2: color-mix(in srgb, var(--tertiary) 34%, var(--lightgray));
+  --seed-br3: color-mix(in srgb, var(--gray) 28%, var(--lightgray));
+  --seed-br1h: color-mix(in srgb, var(--secondary) 58%, var(--lightgray));
+  --seed-br2h: color-mix(in srgb, var(--tertiary) 52%, var(--lightgray));
+  --seed-br3h: color-mix(in srgb, var(--secondary) 22%, var(--gray));
+  --seed-arrow: color-mix(in srgb, var(--tertiary) 70%, var(--gray));
+  --seed-arrow-hover: var(--secondary);
+  --seed-focus: var(--secondary);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.65rem 2.65rem 1.75rem 1.65rem !important;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(
+      color-mix(in srgb, var(--light) 94%, var(--lightgray)),
+      color-mix(in srgb, var(--light) 94%, var(--lightgray))
+    )
+      padding-box,
+    linear-gradient(128deg, var(--seed-br1), var(--seed-br2), var(--seed-br3)) border-box;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--dark) 5%, transparent),
+    0 2px 10px color-mix(in srgb, var(--dark) 5%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--light) 55%, transparent);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.2s ease,
+    background 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.seed-link-card::after {
+  content: "→";
+  position: absolute;
+  right: 1.35rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--seed-arrow);
+  opacity: 0.45;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease,
+    color 0.2s ease;
+}
+
+.seed-link-card:hover {
+  background:
+    linear-gradient(
+      color-mix(in srgb, var(--light) 86%, var(--highlight)),
+      color-mix(in srgb, var(--light) 88%, var(--highlight))
+    )
+      padding-box,
+    linear-gradient(128deg, var(--seed-br1h), var(--seed-br2h), var(--seed-br3h)) border-box;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--dark) 6%, transparent),
+    0 12px 32px color-mix(in srgb, var(--dark) 9%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--light) 40%, transparent);
+  transform: translateY(-2px);
+}
+
+.seed-link-card:hover::after {
+  opacity: 0.95;
+  color: var(--seed-arrow-hover);
+  transform: translate(4px, -50%);
+}
+
+.seed-link-card:focus-visible {
+  outline: 2px solid var(--seed-focus);
+  outline-offset: 3px;
+}
+
+.seed-link-card:focus-visible::after {
+  opacity: 1;
+  color: var(--seed-arrow-hover);
+}
+
+.seed-link-card:active {
+  transform: translateY(0);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--dark) 5%, transparent),
+    0 2px 8px color-mix(in srgb, var(--dark) 6%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--light) 45%, transparent);
+}
+
+:root[saved-theme="dark"] .seed-link-card {
+  --seed-br1: color-mix(in srgb, var(--secondary) 38%, var(--gray));
+  --seed-br2: color-mix(in srgb, var(--tertiary) 32%, var(--gray));
+  --seed-br3: color-mix(in srgb, var(--lightgray) 25%, var(--gray));
+  --seed-br1h: color-mix(in srgb, var(--secondary) 55%, var(--gray));
+  --seed-br2h: color-mix(in srgb, var(--tertiary) 48%, var(--gray));
+  --seed-br3h: color-mix(in srgb, var(--secondary) 28%, var(--lightgray));
+
+  background:
+    linear-gradient(
+      color-mix(in srgb, var(--lightgray) 22%, var(--light)),
+      color-mix(in srgb, var(--lightgray) 22%, var(--light))
+    )
+      padding-box,
+    linear-gradient(128deg, var(--seed-br1), var(--seed-br2), var(--seed-br3)) border-box;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #000 40%, transparent),
+    0 6px 24px color-mix(in srgb, #000 32%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--darkgray) 12%, transparent);
+}
+
+:root[saved-theme="dark"] .seed-link-card:hover {
+  background:
+    linear-gradient(
+      color-mix(in srgb, var(--lightgray) 40%, var(--light)),
+      color-mix(in srgb, var(--lightgray) 38%, var(--light))
+    )
+      padding-box,
+    linear-gradient(128deg, var(--seed-br1h), var(--seed-br2h), var(--seed-br3h)) border-box;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #000 28%, transparent),
+    0 14px 36px color-mix(in srgb, #000 48%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--darkgray) 10%, transparent);
+}
+
+// Tailwind CSS v3 default palette (400/500/600) — keep keys/order in sync with seedFeatures.ts (SEED_TAILWIND_ACCENTS)
+$seed-link-tailwind-accents: (
+  red: (#f87171, #ef4444, #dc2626),
+  cyan: (#22d3ee, #06b6d4, #0891b2),
+  lime: (#a3e635, #84cc16, #65a30d),
+  fuchsia: (#e879f9, #d946ef, #c026d3),
+  amber: (#fbbf24, #f59e0b, #d97706),
+  indigo: (#818cf8, #6366f1, #4f46e5),
+  rose: (#fb7185, #f43f5e, #e11d48),
+  teal: (#2dd4bf, #14b8a6, #0d9488),
+  orange: (#fb923c, #f97316, #ea580c),
+  violet: (#a78bfa, #8b5cf6, #7c3aed),
+  sky: (#38bdf8, #0ea5e9, #0284c7),
+  emerald: (#34d399, #10b981, #059669),
+  pink: (#f472b6, #ec4899, #db2777),
+  yellow: (#facc15, #eab308, #ca8a04),
+  blue: (#60a5fa, #3b82f6, #2563eb),
+);
+
+@each $name, $triplet in $seed-link-tailwind-accents {
+  $c400: list.nth($triplet, 1);
+  $c500: list.nth($triplet, 2);
+  $c600: list.nth($triplet, 3);
+
+  .seed-link-card--#{$name} {
+    --seed-br1: color-mix(in srgb, #{$c400} 42%, var(--lightgray));
+    --seed-br2: color-mix(in srgb, #{$c500} 34%, var(--lightgray));
+    --seed-br3: color-mix(in srgb, #{$c600} 28%, var(--lightgray));
+    --seed-br1h: color-mix(in srgb, #{$c400} 58%, var(--lightgray));
+    --seed-br2h: color-mix(in srgb, #{$c500} 52%, var(--lightgray));
+    --seed-br3h: color-mix(in srgb, #{$c600} 22%, var(--gray));
+    --seed-arrow: color-mix(in srgb, #{$c500} 70%, var(--gray));
+    --seed-arrow-hover: #{$c500};
+    --seed-focus: #{$c500};
+  }
+
+  :root[saved-theme="dark"] .seed-link-card--#{$name} {
+    --seed-br1: color-mix(in srgb, #{$c400} 38%, var(--gray));
+    --seed-br2: color-mix(in srgb, #{$c500} 32%, var(--gray));
+    --seed-br3: color-mix(in srgb, #{$c600} 25%, var(--gray));
+    --seed-br1h: color-mix(in srgb, #{$c400} 55%, var(--gray));
+    --seed-br2h: color-mix(in srgb, #{$c500} 48%, var(--gray));
+    --seed-br3h: color-mix(in srgb, #{$c600} 28%, var(--lightgray));
+    --seed-arrow: color-mix(in srgb, #{$c500} 72%, var(--lightgray));
+    --seed-arrow-hover: #{$c400};
+    --seed-focus: #{$c500};
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seed-link-card,
+  .seed-link-card::after {
+    transition-duration: 0.01ms !important;
+  }
+  .seed-link-card:hover,
+  .seed-link-card:active {
+    transform: none;
+  }
+  .seed-link-card:hover::after {
+    transform: translateY(-50%);
+  }
+}
+
+.seed-link-card__title {
+  margin: 0;
+  font-family: var(--headerFont);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+}
+
+.seed-link-card__desc {
+  margin: 0;
+  font-family: var(--bodyFont);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--darkgray);
+}
+
+.seed-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  gap: 0.65rem 1rem;
+  margin: 1rem 0 1.25rem;
+}
+
+/* Hover shell so the pointer can move onto the tooltip without closing it */
+.seed-feature-badge-shell {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-bottom: 0.2rem;
+}
+
+.seed-feature-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.45rem 0.65rem !important;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  cursor: default;
+  outline: none;
+}
+
+.seed-feature-badge:focus-visible {
+  outline: 2px solid var(--seed-feat-focus, var(--secondary));
+  outline-offset: 2px;
+}
+
+.seed-feature-badge__icon {
+  flex-shrink: 0;
+  width: 1.35rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.seed-feature-badge__title {
+  display: block;
+  min-width: 0;
+  font-weight: 600;
+}
+
+.seed-feature-badge__popover {
+  position: absolute;
+  left: 50%;
+  top: calc(100% - 0.05rem);
+  z-index: 60;
+  min-width: 11.5rem;
+  max-width: min(22rem, calc(100vw - 1.5rem));
+  padding: 0.5rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid var(--seed-feat-popover-border, var(--lightgray));
+  background: var(--seed-feat-popover-bg, var(--light));
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--dark) 4%, transparent),
+    0 10px 28px color-mix(in srgb, var(--dark) 10%, transparent);
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(2px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  transition-delay: 0s, 0s;
+}
+
+.seed-feature-badge__popover-text {
+  margin: 0;
+  font-family: var(--bodyFont);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--seed-feat-popover-text, var(--darkgray));
+}
+
+/* Open state is toggled by seedFeatureBadges.inline.ts (single popover + 1s delay in JS) */
+.seed-feature-badge-shell--popover-open .seed-feature-badge__popover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+// Monotone badge hues — Tailwind v3 defaults (same keys as $seed-link-tailwind-accents)
+@each $name, $triplet in $seed-link-tailwind-accents {
+  $c400: list.nth($triplet, 1);
+  $c500: list.nth($triplet, 2);
+  $c600: list.nth($triplet, 3);
+
+  .seed-feature-badge-shell--#{$name} {
+    --seed-feat-focus: #{$c500};
+    --seed-feat-popover-bg: var(--light);
+    --seed-feat-popover-border: color-mix(in srgb, #{$c500} 38%, var(--lightgray));
+    --seed-feat-popover-text: var(--darkgray);
+  }
+
+  .seed-feature-badge-shell--#{$name} .seed-feature-badge {
+    background: color-mix(in srgb, #{$c500} 11%, var(--light));
+    border-color: color-mix(in srgb, #{$c500} 40%, var(--lightgray));
+    color: color-mix(in srgb, #{$c600} 82%, var(--dark));
+  }
+
+  .seed-feature-badge-shell--#{$name} .seed-feature-badge__icon {
+    color: color-mix(in srgb, #{$c500} 58%, var(--dark));
+  }
+
+  :root[saved-theme="dark"] .seed-feature-badge-shell--#{$name} {
+    --seed-feat-popover-bg: color-mix(in srgb, var(--lightgray) 12%, var(--light));
+    --seed-feat-popover-border: color-mix(in srgb, #{$c500} 32%, var(--gray));
+    --seed-feat-popover-text: var(--darkgray);
+  }
+
+  :root[saved-theme="dark"] .seed-feature-badge-shell--#{$name} .seed-feature-badge {
+    background: color-mix(in srgb, #{$c600} 22%, var(--lightgray));
+    border-color: color-mix(in srgb, #{$c400} 34%, var(--gray));
+    color: color-mix(in srgb, #{$c400} 78%, var(--light));
+  }
+
+  :root[saved-theme="dark"] .seed-feature-badge-shell--#{$name} .seed-feature-badge__icon {
+    color: color-mix(in srgb, #{$c400} 72%, var(--light));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seed-feature-badge__popover {
+    transition-duration: 0.01ms !important;
+  }
+}

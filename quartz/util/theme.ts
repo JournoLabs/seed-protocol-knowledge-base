@@ -32,9 +32,19 @@ const DEFAULT_SANS_SERIF =
   '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif'
 const DEFAULT_MONO = "ui-monospace, SFMono-Regular, SF Mono, Menlo, monospace"
 
+/** Google Fonts CSS2 `family=` value: spaces as `+`. */
+function gfFamily(name: string) {
+  return encodeURIComponent(name).replace(/%20/g, "+")
+}
+
 export function googleFontHref(theme: Theme) {
   const { code, header, body } = theme.typography
-  return `https://fonts.googleapis.com/css2?family=${code}&family=${header}:wght@400;700&family=${body}:ital,wght@0,400;0,600;1,400;1,600&display=swap`
+  const codeF = gfFamily(code)
+  const headerF = gfFamily(header)
+  const bodyF = gfFamily(body)
+  // DM Serif Display has no separate bold; use italics axis only (matches seedprotocol.io).
+  const headerAxis = header === "DM Serif Display" ? "ital@0;1" : "wght@400;700"
+  return `https://fonts.googleapis.com/css2?family=${codeF}:wght@400;600&family=${headerF}:${headerAxis}&family=${bodyF}:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&display=swap`
 }
 
 export function joinStyles(theme: Theme, ...stylesheet: string[]) {

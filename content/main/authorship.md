@@ -1,10 +1,8 @@
 ---
 layout: page
 slug: /authorship
-title: "Authorship is not easy"
+title: Authorship is fuzzy
 ---
-
-# Authorship is not as easy as it sounds
 
 If you're a developer creating a CMS like Wordpress or Ghost, you will probably have to deal with authorship at some point. Should
 the author field be a dropdown? How should it be populated? Just registered users? Should the user be able to select

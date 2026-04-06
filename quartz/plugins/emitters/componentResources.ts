@@ -5,7 +5,10 @@ import { QuartzEmitterPlugin } from "../types"
 import spaRouterScript from "../../components/scripts/spa.inline"
 // @ts-ignore
 import popoverScript from "../../components/scripts/popover.inline"
+// @ts-ignore
+import seedFeatureBadgesScript from "../../components/scripts/seedFeatureBadges.inline"
 import styles from "../../styles/custom.scss"
+import seedDocsStyles from "../../styles/seed-docs.scss"
 import popoverStyle from "../../components/styles/popover.scss"
 import { BuildCtx } from "../../util/ctx"
 import { QuartzComponent } from "../../components/types"
@@ -154,6 +157,8 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
     `)
   }
 
+  componentResources.afterDOMLoaded.push(seedFeatureBadgesScript)
+
   if (cfg.enableSPA) {
     componentResources.afterDOMLoaded.push(spaRouterScript)
   } else {
@@ -236,6 +241,7 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
         googleFontsStyleSheet,
         ...componentResources.css,
         styles,
+        seedDocsStyles,
       )
       const [prescript, postscript] = await Promise.all([
         joinScripts(componentResources.beforeDOMLoaded),

@@ -17,7 +17,7 @@ export default (() => {
     const path = url.pathname as FullSlug
     const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
 
-    const iconPath = joinSegments(baseDir, "static/icon.png")
+    const iconPath = joinSegments(baseDir, "static/branches.svg")
     const ogImagePath = `https://${cfg.baseUrl}/static/og-image.png`
 
     return (
@@ -40,9 +40,17 @@ export default (() => {
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
-        {css.map((href) => (
-          <link key={href} href={href} rel="stylesheet" type="text/css" spa-preserve />
-        ))}
+        {css.map((item, i) =>
+          item.includes("{") ? (
+            <style
+              key={`inline-css-${i}`}
+              spa-preserve
+              dangerouslySetInnerHTML={{ __html: item }}
+            />
+          ) : (
+            <link key={item} href={item} rel="stylesheet" type="text/css" spa-preserve />
+          ),
+        )}
         {js
           .filter((resource) => resource.loadTime === "beforeDOMReady")
           .map((res) => JSResourceToScriptElement(res, true))}

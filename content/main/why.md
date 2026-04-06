@@ -1,10 +1,8 @@
 ---
 layout: page
 slug: /
-title: "Welcome to Seed Protocol"
+title: Why Seed Protocol?
 ---
-
-# Why Seed Protocol?
 
 The unique value prop for Seed Protocol has three main components:
 

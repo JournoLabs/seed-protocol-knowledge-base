@@ -1,3 +1,5 @@
-# Projects building on Seed Protocol
+---
+title: Projects building on Seed Protocol
+---
 
 ## PermaPress

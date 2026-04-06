@@ -1,12 +1,64 @@
 ---
-title: Seed Protocol Docs
+title: Why Seed Protocol?
 slug: /about
 ---
-# Seed Protocol Docs Content
 
-These are the raw markdown files that are used to generate the Seed Protocol documentation. 
+The unique value prop for Seed Protocol has four main components:
 
-The documentation has two sites where you can browse the content in different ways:
+- [Share data across apps, platforms, and networks](#share-data)
+- [Network effects for the people](#network-effects-for-the-people)
+- [Permanence](#permanence)
+- [Discoverability](#discoverability)
 
-- Developer Docs: [https://docs.seedprotocol.io](https://docs.seedprotocol.io)
-- Knowledge Base: [https://base.seedprotocol.io/](https://base.seedprotocol.io)
+## Find your use case
+
+<div data-seed="link-grid" data-items-src="_data/home-link-grid.json"></div>
+
+## Share data across apps, platforms, and networks
+
+If one app creates a post, profile, or any other data, it's immediately available to other apps that support the same data model.
+Remember when anyone could build a Twitter client? Seed brings that back. But for all types of data, not just tweets, follows, and likes.
+All your data created with Seed follows you from app to app by default.
+
+It does this by turning Ethereum into an open and permissionless shared database, using public goods tooling like Ethereum Attestation Service and Arweave.
+And since Seed Protocol is just a design pattern at its core, new adapters can expand it to work on any network or platform, including private ones like Google Drive or Dropbox.
+The current SDK is just the first implementation of many to come.
+
+## Network effects for the people
+
+The path to network effects thus far has relied on heavy capital investments -- investments that require extractive
+monopolies to make the risk and resources worthwhile. As permissionless peer-to-peer networks like Ethereum mature, we
+finally have the chance to see what network effects look like as a public good. This is what we hope to enable with Seed
+Protocol.
+
+Seed is an attempt to coordinate permissionless network effects around a minimal design pattern. Because of its simplicity,
+anyone can publish any type of data to a Seed enabled network without modifying their existing data workflows. We think
+this is a necessary (perhaps even sufficient 🤞) condition for sparking a global data network that anyone can leverage
+to express themselves.
+
+One could think of Seed participants as Facebook users that are not behind Facebook's API. Build
+your own API, or use someone else's. Build a business around it without fear of being rugged by the whims of the market
+or a small group of shareholders. The network effects are yours to keep and grow.
+
+## Permanence
+
+Permanence is not just about storage of data, but also a flexibility to adapt to unknown future circumstances. Seed
+allows different meaning to emerge from the same pieces of data as people, culture, and perceptions change.
+
+When trying to conceive of a way to make content last into the future, one discovers that success requires a deep humility
+about one's ability to predict the future. Anything we think we know now may end up being wrong.
+Thus, Seed makes the minimum amount of assumptions around messy concepts like authorship and sensemaking. These are left
+to the users of Seed to determine for their communities and for them to adapt as new needs arise.
+
+In Seed Protocol, the querier of the data determines the meaning, not the author. This alleviates the protocol from
+solving verified [authorship](authorship) from a technical perspective.
+
+## Discoverability
+
+One of the biggest problems that the giants of web2 solved was discoverability. They did this by creating a walled garden
+that they could control. Seed Protocol is a way to create a public network that anyone can publish to and anyone can query.
+
+By default, just dumping everything into a public network doesn't solve the discoverability problem. Seed lets you have
+your own walled garden and then build bridges to other gardens as needed. It then adds a layer of
+indexing that allows you to search semantically for things in whatever way makes sense to you. No one's view of the data
+on Seed will be the same, but everyone can find what they're looking for.
