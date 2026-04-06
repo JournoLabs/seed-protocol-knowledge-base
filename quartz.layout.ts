@@ -1,5 +1,28 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import type { FileNode } from "./quartz/components/ExplorerNode"
+
+/** Explorer order for direct children of the content root only. */
+function explorerSortFn(a: FileNode, b: FileNode): number {
+  const rank = (n: FileNode): [number, number, string] => {
+    if (n.depth === 1) {
+      if (n.name === "why") return [0, 0, ""]
+      if (n.name === "use_cases") return [0, 1, ""]
+    }
+    const folderFirst = n.file ? 1 : 0
+    return [1, folderFirst, n.displayName]
+  }
+  const ra = rank(a)
+  const rb = rank(b)
+  if (ra[0] !== rb[0]) return ra[0] - rb[0]
+  if (ra[1] !== rb[1]) return ra[1] - rb[1]
+  return ra[2].localeCompare(rb[2], undefined, {
+    numeric: true,
+    sensitivity: "base",
+  })
+}
+
+const explorerProps = { sortFn: explorerSortFn }
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -29,16 +52,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer({
-      // mapFn: (item) => {
-      //   if (item.file && item.file.frontmatter && item.file.frontmatter.title) {
-      //     item.displayName = item.file.frontmatter.title
-      //   }
-      //   if (!item.file) {
-      //     console.log(item)
-      //   }
-      // }
-    })),
+    Component.DesktopOnly(Component.Explorer(explorerProps)),
   ],
   right: [
     Component.Graph(),
@@ -55,7 +69,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.DesktopOnly(Component.Explorer(explorerProps)),
   ],
   right: [],
 }

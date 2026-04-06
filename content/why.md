@@ -1,6 +1,5 @@
 ---
 layout: page
-slug: /
 title: Why Seed Protocol?
 ---
 
@@ -37,7 +36,7 @@ Thus, Seed makes the minimum amount of assumptions around messy concepts like au
 to the users of Seed to determine for their communities and for them to adapt as new needs arise.
 
 In Seed Protocol, the querier of the data determines the meaning, not the author. This alleviates the protocol from
-solving verified [authorship](authorship.md) from a technical perspective.
+solving verified [authorship](main/authorship) from a technical perspective.
 
 ## Discoverability
 
