@@ -2,8 +2,7 @@
 @use "./seed-docs.scss";
 
 // put your custom CSS here!
-.explorer-content li > a,
-.explorer-content .folder-title {
+.explorer-ul li > a {
   text-transform: capitalize;
 }
 
