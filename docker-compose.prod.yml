@@ -1,0 +1,9 @@
+services:
+  quartz:
+    container_name: quartz
+    build:
+        context: .
+        dockerfile: deploy/Dockerfile
+        target: prod
+    ports:
+        - "8080:8080"

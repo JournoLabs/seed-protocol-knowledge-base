@@ -1,0 +1,24 @@
+services:
+  quartz:
+    container_name: quartz
+    build:
+        context: .
+        dockerfile: deploy/Dockerfile
+        target: prod
+    ports:
+        - "8080:8080"
+
+  webhook:
+    image: almir/webhook
+    container_name: webhook-listener
+    volumes:
+      - ./hooks.json:/etc/webhook/hooks.json
+      - ./scripts:/scripts
+    ports:
+      - "9000:9000"
+    command:
+      - "-verbose"
+      - "-template"
+    environment:
+      - WEBHOOK_VERBOSE=true
+      - GITHUB_WEBHOOK_SECRET_DEPLOY_KNOWLEDGE_BASE=${GITHUB_WEBHOOK_SECRET_DEPLOY_KNOWLEDGE_BASE}

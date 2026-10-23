@@ -1,0 +1,10 @@
+.git
+.env
+node_modules
+public
+.quartz-cache
+quartz/.quartz-cache
+tsconfig.tsbuildinfo
+.DS_Store
+.quartz
+quartz.lock.json

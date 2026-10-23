@@ -1,0 +1,13 @@
+services:
+  quartz:
+    container_name: quartz
+    build:
+        context: .
+        dockerfile: deploy/Dockerfile
+        target: dev
+    volumes:
+      - ./content:/usr/src/app/content
+    ports:
+        - "8080:8080"
+        - "3001:3001"
+
