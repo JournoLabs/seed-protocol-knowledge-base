@@ -4,8 +4,7 @@ services:
     build:
         context: .
         dockerfile: Dockerfile
-    volumes:
-      - ./content:/app/content
+        target: prod
     ports:
         - "8080:8080"
 

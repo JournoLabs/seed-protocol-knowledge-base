@@ -3,6 +3,9 @@
 # Exit script if any command fails
 set -e
 
+# Run from the repository root so relative paths resolve wherever the script is called from
+cd "$(dirname "$0")/.."
+
 # Load environment variables from .env file
 if [ -f .env ]; then
   export $(cat .env | grep -v '#' | awk '/=/ {print $1}')
