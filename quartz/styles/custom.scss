@@ -1,3 +1,19 @@
 @use "./variables.scss" as *;
+@use "./seed-docs.scss";
 
 // put your custom CSS here!
+.explorer-content li > a,
+.explorer-content .folder-title {
+  text-transform: capitalize;
+}
+
+.seed-section-label {
+  display: block;
+  font-family: var(--bodyFont);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--tertiary);
+  margin-bottom: 0.35rem;
+}

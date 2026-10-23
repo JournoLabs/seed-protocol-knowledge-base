@@ -12,3 +12,6 @@ replit.nix
 .quartz/
 quartz/cli/tui/dist/
 .turbo/
+
+# Records an absolute path for local plugins; plugins install from quartz.config.yaml instead
+quartz.lock.json

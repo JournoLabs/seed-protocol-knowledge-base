@@ -1,0 +1,33 @@
+{
+  "name": "seed-docs",
+  "version": "1.0.0",
+  "description": "Seed Protocol additions to Quartz: link grids, feature badges, logo page title and dark default theme",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./components": "./dist/components/index.js",
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "seed-docs",
+    "displayName": "Seed Docs",
+    "category": [
+      "transformer",
+      "component"
+    ],
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 55,
+    "defaultEnabled": true,
+    "defaultOptions": {},
+    "components": {
+      "SeedPageTitle": {
+        "displayName": "Seed Page Title",
+        "defaultPosition": "left",
+        "defaultPriority": 10
+      }
+    }
+  }
+}
