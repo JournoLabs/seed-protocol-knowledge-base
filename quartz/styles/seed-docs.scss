@@ -30,9 +30,9 @@
   border: 2px solid transparent;
   background:
     linear-gradient(
-      color-mix(in srgb, var(--light) 94%, var(--lightgray)),
-      color-mix(in srgb, var(--light) 94%, var(--lightgray))
-    )
+        color-mix(in srgb, var(--light) 94%, var(--lightgray)),
+        color-mix(in srgb, var(--light) 94%, var(--lightgray))
+      )
       padding-box,
     linear-gradient(128deg, var(--seed-br1), var(--seed-br2), var(--seed-br3)) border-box;
   box-shadow:
@@ -68,9 +68,9 @@
 .seed-link-card:hover {
   background:
     linear-gradient(
-      color-mix(in srgb, var(--light) 86%, var(--highlight)),
-      color-mix(in srgb, var(--light) 88%, var(--highlight))
-    )
+        color-mix(in srgb, var(--light) 86%, var(--highlight)),
+        color-mix(in srgb, var(--light) 88%, var(--highlight))
+      )
       padding-box,
     linear-gradient(128deg, var(--seed-br1h), var(--seed-br2h), var(--seed-br3h)) border-box;
   box-shadow:
@@ -114,9 +114,9 @@
 
   background:
     linear-gradient(
-      color-mix(in srgb, var(--lightgray) 22%, var(--light)),
-      color-mix(in srgb, var(--lightgray) 22%, var(--light))
-    )
+        color-mix(in srgb, var(--lightgray) 22%, var(--light)),
+        color-mix(in srgb, var(--lightgray) 22%, var(--light))
+      )
       padding-box,
     linear-gradient(128deg, var(--seed-br1), var(--seed-br2), var(--seed-br3)) border-box;
   box-shadow:
@@ -128,9 +128,9 @@
 :root[saved-theme="dark"] .seed-link-card:hover {
   background:
     linear-gradient(
-      color-mix(in srgb, var(--lightgray) 40%, var(--light)),
-      color-mix(in srgb, var(--lightgray) 38%, var(--light))
-    )
+        color-mix(in srgb, var(--lightgray) 40%, var(--light)),
+        color-mix(in srgb, var(--lightgray) 38%, var(--light))
+      )
       padding-box,
     linear-gradient(128deg, var(--seed-br1h), var(--seed-br2h), var(--seed-br3h)) border-box;
   box-shadow:
@@ -141,21 +141,81 @@
 
 // Tailwind CSS v3 default palette (400/500/600) — keep keys/order in sync with SEED_TAILWIND_ACCENTS in plugins/seed-docs/dist/features.js
 $seed-link-tailwind-accents: (
-  "red": (#f87171, #ef4444, #dc2626),
-  "cyan": (#22d3ee, #06b6d4, #0891b2),
-  "lime": (#a3e635, #84cc16, #65a30d),
-  "fuchsia": (#e879f9, #d946ef, #c026d3),
-  "amber": (#fbbf24, #f59e0b, #d97706),
-  "indigo": (#818cf8, #6366f1, #4f46e5),
-  "rose": (#fb7185, #f43f5e, #e11d48),
-  "teal": (#2dd4bf, #14b8a6, #0d9488),
-  "orange": (#fb923c, #f97316, #ea580c),
-  "violet": (#a78bfa, #8b5cf6, #7c3aed),
-  "sky": (#38bdf8, #0ea5e9, #0284c7),
-  "emerald": (#34d399, #10b981, #059669),
-  "pink": (#f472b6, #ec4899, #db2777),
-  "yellow": (#facc15, #eab308, #ca8a04),
-  "blue": (#60a5fa, #3b82f6, #2563eb),
+  "red": (
+    #f87171,
+    #ef4444,
+    #dc2626,
+  ),
+  "cyan": (
+    #22d3ee,
+    #06b6d4,
+    #0891b2,
+  ),
+  "lime": (
+    #a3e635,
+    #84cc16,
+    #65a30d,
+  ),
+  "fuchsia": (
+    #e879f9,
+    #d946ef,
+    #c026d3,
+  ),
+  "amber": (
+    #fbbf24,
+    #f59e0b,
+    #d97706,
+  ),
+  "indigo": (
+    #818cf8,
+    #6366f1,
+    #4f46e5,
+  ),
+  "rose": (
+    #fb7185,
+    #f43f5e,
+    #e11d48,
+  ),
+  "teal": (
+    #2dd4bf,
+    #14b8a6,
+    #0d9488,
+  ),
+  "orange": (
+    #fb923c,
+    #f97316,
+    #ea580c,
+  ),
+  "violet": (
+    #a78bfa,
+    #8b5cf6,
+    #7c3aed,
+  ),
+  "sky": (
+    #38bdf8,
+    #0ea5e9,
+    #0284c7,
+  ),
+  "emerald": (
+    #34d399,
+    #10b981,
+    #059669,
+  ),
+  "pink": (
+    #f472b6,
+    #ec4899,
+    #db2777,
+  ),
+  "yellow": (
+    #facc15,
+    #eab308,
+    #ca8a04,
+  ),
+  "blue": (
+    #60a5fa,
+    #3b82f6,
+    #2563eb,
+  ),
 );
 
 @each $name, $triplet in $seed-link-tailwind-accents {

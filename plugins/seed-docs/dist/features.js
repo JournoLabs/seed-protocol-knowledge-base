@@ -130,5 +130,7 @@ export function seedBadgeAccentForRegistryKey(key) {
 export function seedBadgeAccentForAdHoc(accentOrTitleHint, explicitAccent) {
   const raw = explicitAccent?.trim()
   if (raw && isSeedBadgeAccent(raw)) return raw.toLowerCase()
-  return SEED_TAILWIND_ACCENTS[Math.abs(hashString(accentOrTitleHint)) % SEED_TAILWIND_ACCENTS.length]
+  return SEED_TAILWIND_ACCENTS[
+    Math.abs(hashString(accentOrTitleHint)) % SEED_TAILWIND_ACCENTS.length
+  ]
 }

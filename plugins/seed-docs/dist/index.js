@@ -13,8 +13,7 @@ import {
 /** @typedef {import("hast").ElementContent} ElementContent */
 /** @typedef {{ href?: string, to?: string, title: string, description?: string }} LinkGridItem */
 
-const readScript = (name) =>
-  fs.readFileSync(new URL(`./scripts/${name}`, import.meta.url), "utf8")
+const readScript = (name) => fs.readFileSync(new URL(`./scripts/${name}`, import.meta.url), "utf8")
 const featureBadgesScript = readScript("featureBadges.inline.js")
 const darkDefaultScript = readScript("darkDefault.inline.js")
 
@@ -139,9 +138,11 @@ function buildLinkGrid(items) {
     const accent = SEED_TAILWIND_ACCENTS[accentIndex % SEED_TAILWIND_ACCENTS.length]
     accentIndex += 1
     grid.children.push(
-      h("a", { href: normalizeVaultHref(p), className: ["seed-link-card", `seed-link-card--${accent}`] }, [
-        h("h3", { className: ["seed-link-card__title"] }, [t(item.title)]),
-      ]),
+      h(
+        "a",
+        { href: normalizeVaultHref(p), className: ["seed-link-card", `seed-link-card--${accent}`] },
+        [h("h3", { className: ["seed-link-card__title"] }, [t(item.title)])],
+      ),
     )
   }
 
@@ -214,7 +215,9 @@ function buildFeatureGrid(node) {
     for (const key of keys ?? []) {
       const f = seedFeatures[key]
       if (!f) continue
-      badges.push(makeBadgeElement(f.title, f.description, f.icon, seedBadgeAccentForRegistryKey(key)))
+      badges.push(
+        makeBadgeElement(f.title, f.description, f.icon, seedBadgeAccentForRegistryKey(key)),
+      )
     }
   }
 
