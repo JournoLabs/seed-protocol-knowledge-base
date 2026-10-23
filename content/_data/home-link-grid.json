@@ -1,0 +1,27 @@
+[
+  {
+    "href": "use_cases/journalists",
+    "title": "Journalists",
+    "description": "Short description…"
+  },
+  {
+    "href": "use_cases/writers",
+    "title": "Writers",
+    "description": "Short description…"
+  },
+  {
+    "href": "use_cases/academia",
+    "title": "Academia",
+    "description": "Short description…"
+  },
+  {
+    "href": "use_cases/data_scientists",
+    "title": "Data Scientists",
+    "description": "Short description…"
+  },
+  {
+    "href": "use_cases/app_developers",
+    "title": "App Developers",
+    "description": "Short description…"
+  }
+]
